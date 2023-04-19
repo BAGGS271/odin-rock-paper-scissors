@@ -1,18 +1,11 @@
 //A Rock Paper Scissors game played against the computer in the console.
 
+const myArray = ["Rock", "Paper", "Scissors"]
+
 // Selects Rock, Paper or Scissors for the computer.
 
 function getComputerChoice() {
-    let x = Math.floor(Math.random() * 3) + 1;
-    if (x === 1) {
-        return("Rock");
-    }
-    else if (x === 2) {
-        return("paper");
-    }
-    else {
-        return("Scissors");
-    }
+    return myArray[Math.floor(Math.random() *myArray.length)];
 }
 
 function getPlayerChoice () {
