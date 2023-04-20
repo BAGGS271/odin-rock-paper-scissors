@@ -24,8 +24,8 @@ function getPlayerChoice() {
 // Plays a Round and disoplays the winner in the console.
 
 function playRound() {
-    const playerSelection = getPlayerChoice();
-    const computureSelection = getComputerChoice();
+    playerSelection = getPlayerChoice();
+    computureSelection = getComputerChoice();
     if (playerSelection === computureSelection) {
         return "Player Chose:" + playerSelection + " /Computer Chose:" + computureSelection + " /Result: Tie" 
         + " Score: Player-" + playerScore + "  Computer-" + computerScore;
@@ -50,3 +50,20 @@ function playRound() {
 }
 
 // Plays a game 5 times in a row and keeps score.
+
+function game() {
+    playRound();
+    playRound();
+    playRound();
+    playRound();
+    playRound();
+    if (+playerScore > +computerScore) {
+        return playerScore + " " + computerScore + " Player Wins!"
+    }
+    else if (+playerScore === +computerScore) {
+        return playerScore + " " + computerScore + " Tie!"
+    }
+    else {
+        return playerScore + " " + computerScore + " Computer Wins!"
+    }
+}
