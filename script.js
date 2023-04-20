@@ -19,20 +19,25 @@ function getPlayerChoice() {
     return input;
 }
 
-// Plays a Round.
+// Plays a Round and disoplays the winner in the console.
 
 function playRound() {
     const playerSelection = getPlayerChoice();
     const computureSelection = getComputerChoice();
     if (playerSelection === computureSelection) {
-        return "tie";
+        return "Player Chose:" + playerSelection + " /Computer Chose:" + computureSelection + " /Result: Tie";
     }
     else if (playerSelection === "rock" && computureSelection === "paper"
     || playerSelection === "paper" && computureSelection === "scissors" 
     || playerSelection === "scissors" && computureSelection === "rock") {
-        return "Player loses!";
+        return "Player Chose:" + playerSelection + " /Computer Chose:" + computureSelection + " /Result: Player loses!";
+    }
+    else if (playerSelection === "rock" && computureSelection === "scissors"
+    || playerSelection === "paper" && computureSelection === "rock" 
+    || playerSelection === "scissors" && computureSelection === "paper") {
+        return "Player Chose:" + playerSelection + " /Computer Chose:" + computureSelection + " /Result: Player Wins!";
     }
     else {
-        return "Player Wins!";
+        return "Thats not an option! Please check spelling."
     }
 }
