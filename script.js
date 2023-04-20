@@ -53,10 +53,15 @@ function playRound() {
 
 function game() {
     playRound();
+    console.log ("Player: " + playerSelection + " Computer: " + computureSelection)
     playRound();
+    console.log ("Player: " + playerSelection + " Computer: " + computureSelection)
     playRound();
+    console.log ("Player: " + playerSelection + " Computer: " + computureSelection)
     playRound();
+    console.log ("Player: " + playerSelection + " Computer: " + computureSelection)
     playRound();
+    console.log ("Player: " + playerSelection + " Computer: " + computureSelection)
     if (+playerScore > +computerScore) {
         return playerScore + " " + computerScore + " Player Wins!"
     }
