@@ -27,21 +27,21 @@ function playRound() {
     playerSelection = getPlayerChoice();
     computureSelection = getComputerChoice();
     if (playerSelection === computureSelection) {
-        return "Player Chose:" + playerSelection + " /Computer Chose:" + computureSelection + " /Result: Tie" 
+        return "Player Chose:" + playerSelection + " Computer Chose:" + computureSelection + " Result:Tie." 
         + " Score: Player-" + playerScore + "  Computer-" + computerScore;
     }
     else if (playerSelection === "rock" && computureSelection === "paper"
     || playerSelection === "paper" && computureSelection === "scissors" 
     || playerSelection === "scissors" && computureSelection === "rock") {
         computerScore++;
-        return "Player Chose:" + playerSelection + " /Computer Chose:" + computureSelection + " /Result: Player loses!" 
+        return "Player Chose:" + playerSelection + " Computer Chose:" + computureSelection + " Result:Player loses!" 
         + " Score: Player-" + playerScore + "  Computer-" + computerScore;
     }
     else if (playerSelection === "rock" && computureSelection === "scissors"
     || playerSelection === "paper" && computureSelection === "rock" 
     || playerSelection === "scissors" && computureSelection === "paper") {
         playerScore++
-        return "Player Chose:" + playerSelection + " /Computer Chose:" + computureSelection + " /Result: Player Wins!" 
+        return "Player Chose:" + playerSelection + " Computer Chose:" + computureSelection + " Result:Player Wins!" 
         + " Score: Player-" + playerScore + "  Computer-" + computerScore;
     }
     else {
@@ -72,3 +72,7 @@ function game() {
         return playerScore + " " + computerScore + " Computer Wins!"
     }
 }
+
+// Plays a round o startup.
+
+playRound()
