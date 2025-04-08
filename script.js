@@ -1,30 +1,55 @@
-// A Rock Paper Scissors game played against the computer in the console.
 
-const myArray = ["rock", "paper", "scissors"]
+const buttons = document.querySelectorAll("button");
+const rockButton = document.getElementById("Rock");
+const paperButton = document.getElementById("Paper");
+const scissorsButton = document.getElementById("Scissors");
+
+const results = document.querySelector(".results");
+const score = document.querySelector(".score");
+
+rockButton.addEventListener("click", pressRock);
+
+function pressRock() {
+    const playerSelection = "rock";
+    playRound(playerSelection)
+
+    results.textContent = "Player Chose Rock and computure chose " + computureSelection;
+    score.textContent = "Score: Player-" + playerScore + "  Computer-" + computerScore;
+
+    }
+
+paperButton.addEventListener("click", pressPaper);
+
+function pressPaper() {
+    const playerSelection = "paper";
+    playRound(playerSelection)
+
+    results.textContent = "Player Chose Paper and computure chose " + computureSelection;
+    score.textContent = "Score: Player-" + playerScore + "  Computer-" + computerScore; 
+}
+
+scissorsButton.addEventListener("click", pressScissors);
+
+function pressScissors() {
+    const playerSelection = "scissors";
+    playRound(playerSelection)
+
+    results.textContent = "Player Chose Scissors and computure chose " + computureSelection;
+    score.textContent = "Score: Player-" + playerScore + "  Computer-" + computerScore; 
+}
+
+// Selects Rock, Paper or Scissors for the computer.
+function getComputerChoice() {
+    return choices[Math.floor(Math.random() *choices.length)];
+}
+
+
+// A Rock Paper Scissors game played against the computer in the console.
+const choices = ["rock", "paper", "scissors"]
 let playerScore = (0);
 let computerScore = (0);
 
-// Selects Rock, Paper or Scissors for the computer.
-
-function getComputerChoice() {
-    return myArray[Math.floor(Math.random() *myArray.length)];
-}
-
-// Produces a Prompt for the player to select.
-
-function getPlayerChoice() {
-    let input = prompt("Type Rock, Paper or Scissors");
-    while (input == null) {
-        input = prompt("Type Rock, Paper or Scissors");
-    }
-    input = input.toLowerCase();
-    return input;
-}
-
-// Plays a Round and disoplays the winner in the console.
-
-function playRound() {
-    playerSelection = getPlayerChoice();
+function playRound(playerSelection) {
     computureSelection = getComputerChoice();
     if (playerSelection === computureSelection) {
         return "Player Chose:" + playerSelection + " Computer Chose:" + computureSelection + " Result:Tie." 
@@ -37,42 +62,10 @@ function playRound() {
         return "Player Chose:" + playerSelection + " Computer Chose:" + computureSelection + " Result:Player loses!" 
         + " Score: Player-" + playerScore + "  Computer-" + computerScore;
     }
-    else if (playerSelection === "rock" && computureSelection === "scissors"
+    else (playerSelection === "rock" && computureSelection === "scissors"
     || playerSelection === "paper" && computureSelection === "rock" 
-    || playerSelection === "scissors" && computureSelection === "paper") {
+    || playerSelection === "scissors" && computureSelection === "paper") ;
         playerScore++
         return "Player Chose:" + playerSelection + " Computer Chose:" + computureSelection + " Result:Player Wins!" 
         + " Score: Player-" + playerScore + "  Computer-" + computerScore;
     }
-    else {
-        return "Thats not an option! Please check spelling."
-    }
-}
-
-// Plays a game 5 times in a row and keeps score.
-
-function game() {
-    playRound();
-    console.log ("Player: " + playerSelection + " Computer: " + computureSelection)
-    playRound();
-    console.log ("Player: " + playerSelection + " Computer: " + computureSelection)
-    playRound();
-    console.log ("Player: " + playerSelection + " Computer: " + computureSelection)
-    playRound();
-    console.log ("Player: " + playerSelection + " Computer: " + computureSelection)
-    playRound();
-    console.log ("Player: " + playerSelection + " Computer: " + computureSelection)
-    if (+playerScore > +computerScore) {
-        return playerScore + " " + computerScore + " Player Wins!"
-    }
-    else if (+playerScore === +computerScore) {
-        return playerScore + " " + computerScore + " Tie!"
-    }
-    else {
-        return playerScore + " " + computerScore + " Computer Wins!"
-    }
-}
-
-// Plays a round o startup.
-
-playRound()
