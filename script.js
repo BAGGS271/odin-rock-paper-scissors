@@ -74,11 +74,12 @@ function playRound(playerSelection) {
     || playerSelection === "scissors" && computureSelection === "rock") {
         computerScore++;
     }
-    else (playerSelection === "rock" && computureSelection === "scissors"
+    else if (playerSelection === "rock" && computureSelection === "scissors"
     || playerSelection === "paper" && computureSelection === "rock" 
-    || playerSelection === "scissors" && computureSelection === "paper") ;
-        playerScore++
+    || playerSelection === "scissors" && computureSelection === "paper") {
+        playerScore++;
     }
+ }
 
 // Selects Rock, Paper or Scissors for the computer.
 function getComputerChoice() {
