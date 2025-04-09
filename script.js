@@ -1,5 +1,3 @@
-
-const buttons = document.querySelectorAll("button");
 const rockButton = document.getElementById("Rock");
 const paperButton = document.getElementById("Paper");
 const scissorsButton = document.getElementById("Scissors");
@@ -13,10 +11,17 @@ function pressRock() {
     const playerSelection = "rock";
     playRound(playerSelection)
 
-    results.textContent = "Player Chose Rock and computure chose " + computureSelection;
+    results.textContent = "Player Chose Rock and computer chose " + computureSelection;
     score.textContent = "Score: Player-" + playerScore + "  Computer-" + computerScore;
 
-    }
+    document.getElementById("rockImg").style.display = "block";
+    document.getElementById("paperImg").style.display = "none";
+    document.getElementById("scissorsImg").style.display = "none";
+
+    getComImg()
+    checkScore()
+    resetGame()
+}
 
 paperButton.addEventListener("click", pressPaper);
 
@@ -24,8 +29,16 @@ function pressPaper() {
     const playerSelection = "paper";
     playRound(playerSelection)
 
-    results.textContent = "Player Chose Paper and computure chose " + computureSelection;
-    score.textContent = "Score: Player-" + playerScore + "  Computer-" + computerScore; 
+    results.textContent = "Player Chose Paper and computer chose " + computureSelection;
+    score.textContent = "Score: Player-" + playerScore + "  Computer-" + computerScore;
+
+    document.getElementById("rockImg").style.display = "none";
+    document.getElementById("paperImg").style.display = "block";
+    document.getElementById("scissorsImg").style.display = "none";
+
+    getComImg()
+    checkScore()
+    resetGame()
 }
 
 scissorsButton.addEventListener("click", pressScissors);
@@ -34,20 +47,22 @@ function pressScissors() {
     const playerSelection = "scissors";
     playRound(playerSelection)
 
-    results.textContent = "Player Chose Scissors and computure chose " + computureSelection;
+    results.textContent = "Player Chose Scissors and computer chose " + computureSelection;
     score.textContent = "Score: Player-" + playerScore + "  Computer-" + computerScore; 
+
+    document.getElementById("rockImg").style.display = "none";
+    document.getElementById("paperImg").style.display = "none";
+    document.getElementById("scissorsImg").style.display = "block";
+
+    getComImg()
+    checkScore()
+    resetGame()
 }
 
-// Selects Rock, Paper or Scissors for the computer.
-function getComputerChoice() {
-    return choices[Math.floor(Math.random() *choices.length)];
-}
-
-
-// A Rock Paper Scissors game played against the computer in the console.
 const choices = ["rock", "paper", "scissors"]
 let playerScore = (0);
 let computerScore = (0);
+
 
 function playRound(playerSelection) {
     computureSelection = getComputerChoice();
@@ -69,3 +84,48 @@ function playRound(playerSelection) {
         return "Player Chose:" + playerSelection + " Computer Chose:" + computureSelection + " Result:Player Wins!" 
         + " Score: Player-" + playerScore + "  Computer-" + computerScore;
     }
+
+// Selects Rock, Paper or Scissors for the computer.
+function getComputerChoice() {
+    return choices[Math.floor(Math.random() *choices.length)];
+}
+
+//changes the computre choice image
+function getComImg() {
+    if (computureSelection === "rock") {
+        document.getElementById("comRock").style.display = "block";
+        document.getElementById("comPaper").style.display = "none";
+        document.getElementById("comScissors").style.display = "none";
+    }
+    else if (computureSelection === "paper") {
+        document.getElementById("comRock").style.display = "none";
+        document.getElementById("comPaper").style.display = "block";
+        document.getElementById("comScissors").style.display = "none";
+    }
+    else {
+        document.getElementById("comRock").style.display = "none";
+        document.getElementById("comPaper").style.display = "none";
+        document.getElementById("comScissors").style.display = "block";
+    }
+}
+
+//checks the score to see if there is a winner
+function checkScore() {
+    if (playerScore === 5) {
+        results.textContent = "Player Wins!"
+    }
+    else if (computerScore === 5) {
+        results.textContent = "Computer Wins!"
+    }
+    else {
+        return;
+    }
+}
+
+//resets the game
+function resetGame() {
+    if (playerScore === 5 || computerScore === 5) {
+        playerScore = 0;
+        computerScore = 0;
+    }
+}

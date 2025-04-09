@@ -4,12 +4,25 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Rock Paper Scissors</title>
 </head>
 <body>
     <h1>Rock Paper Scissors</h1>
-    <div class="results"></div>
-    <div>
+    <div class="imgBox">
+        <div id="playerImg">
+            <img id="rockImg" src="images/rock.webp" alt="rock">
+            <img id="paperImg" src="images/paper.jpg" alt="paper">
+            <img id="scissorsImg" src="images/scissors.PNG" alt="scissors">
+        </div>
+        <div class="results"></div>
+        <div class="computerImg">
+            <img id="comRock" src="images/rock.webp" alt="rock">
+            <img id="comPaper" src="images/paper.jpg" alt="paper">
+            <img id="comScissors" src="images/scissors.PNG" alt="scissors">
+        </div>
+    </div>
+    <div class="buttons">
         <button id="Rock">Rock</button>
         <button id="Paper">Paper</button>
         <button id="Scissors">Scissors</button>

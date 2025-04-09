@@ -1,0 +1,50 @@
+body {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    border: solid, red;
+    margin: 0%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+img {
+    max-width: 100px;
+    max-height: 100px;
+    display: none;
+}
+
+.imgBox {
+    border: solid, black;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+    background-color: yellow;
+    margin: 0%;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-evenly;
+    background-color: blue;
+}
+
+.results {
+    display: flex;
+    justify-content: center;
+    background-color: aqua;
+    padding: 100px;
+    border: solid, purple;
+}
+
+.score {
+    display: flex;
+    justify-content: center;
+    border: solid, red;
+    background-color: green;
+}
