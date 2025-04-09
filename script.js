@@ -1,78 +1,126 @@
-// A Rock Paper Scissors game played against the computer in the console.
+const rockButton = document.getElementById("Rock");
+const paperButton = document.getElementById("Paper");
+const scissorsButton = document.getElementById("Scissors");
 
-const myArray = ["rock", "paper", "scissors"]
+const results = document.querySelector(".results");
+const score = document.querySelector(".score");
+
+rockButton.addEventListener("click", pressRock);
+
+function pressRock() {
+    const playerSelection = "rock";
+    playRound(playerSelection)
+
+    results.textContent = "Player Chose Rock and computer chose " + computureSelection;
+    score.textContent = "Score: Player-" + playerScore + "  Computer-" + computerScore;
+
+    document.getElementById("rockImg").style.display = "block";
+    document.getElementById("paperImg").style.display = "none";
+    document.getElementById("scissorsImg").style.display = "none";
+
+    getComImg()
+    checkScore()
+    resetGame()
+}
+
+paperButton.addEventListener("click", pressPaper);
+
+function pressPaper() {
+    const playerSelection = "paper";
+    playRound(playerSelection)
+
+    results.textContent = "Player Chose Paper and computer chose " + computureSelection;
+    score.textContent = "Score: Player-" + playerScore + "  Computer-" + computerScore;
+
+    document.getElementById("rockImg").style.display = "none";
+    document.getElementById("paperImg").style.display = "block";
+    document.getElementById("scissorsImg").style.display = "none";
+
+    getComImg()
+    checkScore()
+    resetGame()
+}
+
+scissorsButton.addEventListener("click", pressScissors);
+
+function pressScissors() {
+    const playerSelection = "scissors";
+    playRound(playerSelection)
+
+    results.textContent = "Player Chose Scissors and computer chose " + computureSelection;
+    score.textContent = "Score: Player-" + playerScore + "  Computer-" + computerScore; 
+
+    document.getElementById("rockImg").style.display = "none";
+    document.getElementById("paperImg").style.display = "none";
+    document.getElementById("scissorsImg").style.display = "block";
+
+    getComImg()
+    checkScore()
+    resetGame()
+}
+
+const choices = ["rock", "paper", "scissors"]
 let playerScore = (0);
 let computerScore = (0);
 
-// Selects Rock, Paper or Scissors for the computer.
 
-function getComputerChoice() {
-    return myArray[Math.floor(Math.random() *myArray.length)];
-}
-
-// Produces a Prompt for the player to select.
-
-function getPlayerChoice() {
-    let input = prompt("Type Rock, Paper or Scissors");
-    while (input == null) {
-        input = prompt("Type Rock, Paper or Scissors");
-    }
-    input = input.toLowerCase();
-    return input;
-}
-
-// Plays a Round and disoplays the winner in the console.
-
-function playRound() {
-    playerSelection = getPlayerChoice();
+function playRound(playerSelection) {
     computureSelection = getComputerChoice();
     if (playerSelection === computureSelection) {
-        return "Player Chose:" + playerSelection + " Computer Chose:" + computureSelection + " Result:Tie." 
-        + " Score: Player-" + playerScore + "  Computer-" + computerScore;
+        return
     }
     else if (playerSelection === "rock" && computureSelection === "paper"
     || playerSelection === "paper" && computureSelection === "scissors" 
     || playerSelection === "scissors" && computureSelection === "rock") {
         computerScore++;
-        return "Player Chose:" + playerSelection + " Computer Chose:" + computureSelection + " Result:Player loses!" 
-        + " Score: Player-" + playerScore + "  Computer-" + computerScore;
     }
-    else if (playerSelection === "rock" && computureSelection === "scissors"
+    else (playerSelection === "rock" && computureSelection === "scissors"
     || playerSelection === "paper" && computureSelection === "rock" 
-    || playerSelection === "scissors" && computureSelection === "paper") {
+    || playerSelection === "scissors" && computureSelection === "paper") ;
         playerScore++
-        return "Player Chose:" + playerSelection + " Computer Chose:" + computureSelection + " Result:Player Wins!" 
-        + " Score: Player-" + playerScore + "  Computer-" + computerScore;
+    }
+
+// Selects Rock, Paper or Scissors for the computer.
+function getComputerChoice() {
+    return choices[Math.floor(Math.random() *choices.length)];
+}
+
+//changes the computre choice image
+function getComImg() {
+    if (computureSelection === "rock") {
+        document.getElementById("comRock").style.display = "block";
+        document.getElementById("comPaper").style.display = "none";
+        document.getElementById("comScissors").style.display = "none";
+    }
+    else if (computureSelection === "paper") {
+        document.getElementById("comRock").style.display = "none";
+        document.getElementById("comPaper").style.display = "block";
+        document.getElementById("comScissors").style.display = "none";
     }
     else {
-        return "Thats not an option! Please check spelling."
+        document.getElementById("comRock").style.display = "none";
+        document.getElementById("comPaper").style.display = "none";
+        document.getElementById("comScissors").style.display = "block";
     }
 }
 
-// Plays a game 5 times in a row and keeps score.
-
-function game() {
-    playRound();
-    console.log ("Player: " + playerSelection + " Computer: " + computureSelection)
-    playRound();
-    console.log ("Player: " + playerSelection + " Computer: " + computureSelection)
-    playRound();
-    console.log ("Player: " + playerSelection + " Computer: " + computureSelection)
-    playRound();
-    console.log ("Player: " + playerSelection + " Computer: " + computureSelection)
-    playRound();
-    console.log ("Player: " + playerSelection + " Computer: " + computureSelection)
-    if (+playerScore > +computerScore) {
-        return playerScore + " " + computerScore + " Player Wins!"
+//checks the score to see if there is a winner
+function checkScore() {
+    if (playerScore === 5) {
+        results.textContent = "Player Wins!"
     }
-    else if (+playerScore === +computerScore) {
-        return playerScore + " " + computerScore + " Tie!"
+    else if (computerScore === 5) {
+        results.textContent = "Computer Wins!"
     }
     else {
-        return playerScore + " " + computerScore + " Computer Wins!"
+        return;
     }
 }
 
-// Plays a round o startup.
-
-playRound()
+//resets the game
+function resetGame() {
+    if (playerScore === 5 || computerScore === 5) {
+        playerScore = 0;
+        computerScore = 0;
+    }
+}

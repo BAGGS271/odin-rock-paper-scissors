@@ -1,0 +1,83 @@
+body {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    border: solid, black;
+    margin: 0%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(52, 25, 170);
+    min-width: 640px;
+}
+
+.imgHolder {
+    min-height: 100px;
+    min-width: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+img {
+    max-width: 100px;
+    max-height: 100px;
+    display: none;
+}
+
+#Paper {
+    margin-left: 100px;
+    margin-right: 100px;
+    margin-top: 10px;
+    border-radius: 75px;
+    color: aliceblue;
+    background-color: darkblue;
+    border-color: palevioletred;
+    min-width: 100px;
+    margin-bottom: 10px;
+}
+
+#Rock, #Scissors {
+    border-radius: 75px;
+    color: aliceblue;
+    background-color: darkblue;
+    border-color: palevioletred;
+    min-width: 100px;
+}
+
+.imgBox {
+    border: solid, black;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    background-image: url("/odin-rock-paper-scissors/images/arena.gif");
+    width: 640px;
+    height: 480px;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+    color: aliceblue;
+    margin: 0%;
+    margin-bottom: 50px;
+    text-shadow: 0px 0px 5px black;
+}
+
+.results {
+    display: flex;
+    justify-content: center;
+    padding: 100px;
+    background-image: url("arena.gif");
+    color: aliceblue;
+    text-align: center;
+    text-shadow: 10px 10px 5px palevioletred;
+}
+
+.score {
+    display: flex;
+    justify-content: center;
+    color: aliceblue;
+    font-size: larger;
+    text-shadow: 0px 0px 5px black;
+}
