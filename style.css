@@ -50,7 +50,7 @@ img {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    background-image: url("/odin-rock-paper-scissors/images/arena.gif");
+    background-image: url("/images/arena.gif");
     width: 640px;
     height: 480px;
 }
